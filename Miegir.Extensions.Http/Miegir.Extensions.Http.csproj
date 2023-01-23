@@ -18,6 +18,7 @@
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

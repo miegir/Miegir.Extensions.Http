@@ -203,12 +203,6 @@ public class HttpClientConfigurationTests
 
         var factory = serviceProvider.GetRequiredService<IHttpClientFactory>();
 
-        factory.Invoking(f => f.CreateClient())
-            .Should()
-            .ThrowExactly<OptionsValidationException>()
-            .WithMessage("HttpClient: BaseAddress should not be null.")
-            .Where(x => x.OptionsName == "Http:BaseAddress" && x.OptionsType == typeof(Uri));
-
         factory.Invoking(f => f.CreateClient("Client1"))
             .Should()
             .ThrowExactly<OptionsValidationException>()

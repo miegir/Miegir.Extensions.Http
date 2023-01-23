@@ -127,8 +127,6 @@ Http clients named `"A"` and `"A:B:C"` will not have a proxy, but clients named 
 
 ## Additional validation
 
-When using `AddHttpClientConfiguration`, every `HttpClient` created with `IHttpClientFactory` will require its `BaseAddress` to be specified. An exception will be raised if `BaseAddress` will be null. You can provide default `BaseAddress` in code (by using `ConfigureHttpClient` for example).
-
 When `BaseAddress` is applied from `IConfiguration` instance, the following rules are checked:
 - The address should be absolute. Relative `Uri` cannot be assigned to `HttpClient.BaseAddress` anyway.
 - `AbsolutePath` of the address should end with `'/'`. This ensures that confiured address will be used exactly as specified when making requests. For example, if the base address would be specified as `"https://domain/root/path"` (not ending with `'/'`) then when performing `httpClient.GetAsync("address")` the request will be made to `"https://domain/root/address"` and not to `"https://domain/root/path/address"` as one might expect. We therefore prohibit paths not ending with `'/'`. This rule is not enforced when `HttpClient` is configured in code.

@@ -87,11 +87,6 @@ namespace Microsoft.Extensions.Http
                     client.BaseAddress = instance.BaseAddress;
                 }
 
-                if (client.BaseAddress is null)
-                {
-                    instance.ThowBaseAddressShouldNotBeNull();
-                }
-
                 if (instance.Timeout != null)
                 {
                     client.Timeout = instance.Timeout.Value;
