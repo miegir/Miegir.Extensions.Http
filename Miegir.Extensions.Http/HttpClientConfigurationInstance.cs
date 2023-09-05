@@ -72,7 +72,7 @@ namespace Microsoft.Extensions.Http
             }
         }
 
-        public void ThowBaseAddressShouldNotBeNull()
+        public void ThrowBaseAddressShouldNotBeNull()
         {
             var message = $"{DisplayName}: {nameof(BaseAddress)} should not be null.";
             throw new OptionsValidationException(

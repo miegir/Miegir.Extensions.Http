@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 namespace Microsoft.Extensions.Http
 {
     /// <summary>
-    /// An options class for configuring the <see cref="IHttpClientFactory"/> confuguration.
+    /// An options class for configuring the <see cref="IHttpClientFactory"/> configuration.
     /// </summary>
     public class HttpClientConfigurationOptions
     {

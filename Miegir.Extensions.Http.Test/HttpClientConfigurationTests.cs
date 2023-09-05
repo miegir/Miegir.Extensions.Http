@@ -313,10 +313,10 @@ public class HttpClientConfigurationTests
     {
         var provider = new MockConfigurationProvider();
 
-        provider.Set("Http:ProxyUrl", "proxyurl");
-        provider.Set("Http:ProxyUserName", "proxyname");
-        provider.Set("Http:ProxyPassword", "proxypass");
-        provider.Set("Http:ProxyDomain", "proxydomain");
+        provider.Set("Http:ProxyUrl", "proxy_url");
+        provider.Set("Http:ProxyUserName", "proxy_name");
+        provider.Set("Http:ProxyPassword", "proxy_pass");
+        provider.Set("Http:ProxyDomain", "proxy_domain");
 
         var configuration = new ConfigurationBuilder().Add(provider).Build();
 
@@ -331,10 +331,10 @@ public class HttpClientConfigurationTests
         var proxy = handler.Proxy.Should().BeOfType<WebProxy>().Subject;
         var credential = proxy.Credentials.Should().BeOfType<NetworkCredential>().Subject;
 
-        proxy.Address.Should().Be("http://proxyurl/");
-        credential.UserName.Should().Be("proxyname");
-        credential.Password.Should().Be("proxypass");
-        credential.Domain.Should().Be("proxydomain");
+        proxy.Address.Should().Be("http://proxy_url/");
+        credential.UserName.Should().Be("proxy_name");
+        credential.Password.Should().Be("proxy_pass");
+        credential.Domain.Should().Be("proxy_domain");
     }
 
     [TestMethod]
@@ -342,10 +342,10 @@ public class HttpClientConfigurationTests
     {
         var provider = new MockConfigurationProvider();
 
-        provider.Set("Http:ProxyUrl", "proxyurl");
-        provider.Set("Http:ProxyUserName", "proxyname");
-        provider.Set("Http:ProxyPassword", "proxypass");
-        provider.Set("Http:ProxyDomain", "proxydomain");
+        provider.Set("Http:ProxyUrl", "proxy_url");
+        provider.Set("Http:ProxyUserName", "proxy_name");
+        provider.Set("Http:ProxyPassword", "proxy_pass");
+        provider.Set("Http:ProxyDomain", "proxy_domain");
 
         var configuration = new ConfigurationBuilder().Add(provider).Build();
 
@@ -360,10 +360,10 @@ public class HttpClientConfigurationTests
         var proxy = handler.Proxy.Should().BeOfType<WebProxy>().Subject;
         var credential = proxy.Credentials.Should().BeOfType<NetworkCredential>().Subject;
 
-        proxy.Address.Should().Be("http://proxyurl/");
-        credential.UserName.Should().Be("proxyname");
-        credential.Password.Should().Be("proxypass");
-        credential.Domain.Should().Be("proxydomain");
+        proxy.Address.Should().Be("http://proxy_url/");
+        credential.UserName.Should().Be("proxy_name");
+        credential.Password.Should().Be("proxy_pass");
+        credential.Domain.Should().Be("proxy_domain");
     }
 
     [TestMethod]
@@ -371,12 +371,12 @@ public class HttpClientConfigurationTests
     {
         var provider = new MockConfigurationProvider();
 
-        provider.Set("Http:ProxyUrl", "proxyurl");
-        provider.Set("Http:ProxyUserName", "proxyname");
-        provider.Set("Http:ProxyPassword", "proxypass");
-        provider.Set("Http:ProxyDomain", "proxydomain");
-        provider.Set("Http:Named:ProxyUrl", "namedproxyurl");
-        provider.Set("Http:Named:ProxyUserName", "namedproxyname");
+        provider.Set("Http:ProxyUrl", "proxy_url");
+        provider.Set("Http:ProxyUserName", "proxy_name");
+        provider.Set("Http:ProxyPassword", "proxy_pass");
+        provider.Set("Http:ProxyDomain", "proxy_domain");
+        provider.Set("Http:Named:ProxyUrl", "named_proxy_url");
+        provider.Set("Http:Named:ProxyUserName", "named_proxy_name");
 
         var configuration = new ConfigurationBuilder().Add(provider).Build();
 
@@ -391,8 +391,8 @@ public class HttpClientConfigurationTests
         var proxy = handler.Proxy.Should().BeOfType<WebProxy>().Subject;
         var credential = proxy.Credentials.Should().BeOfType<NetworkCredential>().Subject;
 
-        proxy.Address.Should().Be("http://namedproxyurl/");
-        credential.UserName.Should().Be("namedproxyname");
+        proxy.Address.Should().Be("http://named_proxy_url/");
+        credential.UserName.Should().Be("named_proxy_name");
         credential.Password.Should().BeEmpty();
         credential.Domain.Should().BeEmpty();
     }
@@ -402,10 +402,10 @@ public class HttpClientConfigurationTests
     {
         var provider = new MockConfigurationProvider();
 
-        provider.Set("Http:ProxyUrl", "proxyurl");
-        provider.Set("Http:ProxyUserName", "proxyname");
-        provider.Set("Http:ProxyPassword", "proxypass");
-        provider.Set("Http:ProxyDomain", "proxydomain");
+        provider.Set("Http:ProxyUrl", "proxy_url");
+        provider.Set("Http:ProxyUserName", "proxy_name");
+        provider.Set("Http:ProxyPassword", "proxy_pass");
+        provider.Set("Http:ProxyDomain", "proxy_domain");
         provider.Set("Http:Named:BaseAddress", "https://www.domain.com/");
 
         var configuration = new ConfigurationBuilder().Add(provider).Build();

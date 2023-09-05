@@ -43,7 +43,7 @@ builder.Services.AddHttpClientConfiguration(options =>
 });
 ```
 
-We can configure our clients manually. The confugiration from `IConfiguration` instance will be provided on top of that (since it is applied with IPostConfigureOptions&lt;HttpClientFactgoryOptions>).
+We can configure our clients manually. The configuration from `IConfiguration` instance will be provided on top of that (since it is applied with IPostConfigureOptions&lt;HttpClientFactoryOptions>).
 ```C#
 builder.Services.AddHttpClientConfiguration();
 
@@ -73,7 +73,7 @@ The following properties of the HttpClient can be configured:
 
 The following properties of the underlying HttpClientHandler can be configured:
 - AllowAutoRedirect.
-- Proxy. This is configured using `ProxyUrl` configuration option. If `ProxyUrl` is not empty, the `WebProxy` instance will be created with this url. The `WebProxy.Credentials` property is initialized to `NetworkCredential` instance with the following proepties read from options:
+- Proxy. This is configured using `ProxyUrl` configuration option. If `ProxyUrl` is not empty, a `WebProxy` instance will be created with this url. The `WebProxy.Credentials` property is initialized to `NetworkCredential` instance with the following properties read from options:
     - UserName. Will be read from `ProxyUserName`.
     - Password. Will be read from `ProxyPassword`.
     - Domain. Will be read from `ProxyDomain`.
@@ -103,7 +103,7 @@ With this configuration, the unnamed `HttpClient` will have the `BaseAddress` eq
 
 The proxy for an `HttpClientHandler` will be inherited as long as `BaseAddress` is not overridden. When `BaseAddress` is overridden (even if the same as its parent), the proxy is no longer inherited and should be specified explicitly.
 
-Consider the following confgiuration:
+Consider the following configuration:
 ```json
 {
     "Http": {
@@ -129,7 +129,7 @@ Http clients named `"A"` and `"A:B:C"` will not have a proxy, but clients named 
 
 When `BaseAddress` is applied from `IConfiguration` instance, the following rules are checked:
 - The address should be absolute. Relative `Uri` cannot be assigned to `HttpClient.BaseAddress` anyway.
-- `AbsolutePath` of the address should end with `'/'`. This ensures that confiured address will be used exactly as specified when making requests. For example, if the base address would be specified as `"https://domain/root/path"` (not ending with `'/'`) then when performing `httpClient.GetAsync("address")` the request will be made to `"https://domain/root/address"` and not to `"https://domain/root/path/address"` as one might expect. We therefore prohibit paths not ending with `'/'`. This rule is not enforced when `HttpClient` is configured in code.
+- `AbsolutePath` of the address should end with `'/'`. This ensures that configured address will be used exactly as specified when making requests. For example, if the base address would be specified as `"https://domain/root/path"` (not ending with `'/'`) then when performing `httpClient.GetAsync("address")` the request will be made to `"https://domain/root/address"` and not to `"https://domain/root/path/address"` as one might expect. We therefore prohibit paths not ending with `'/'`. This rule is not enforced when `HttpClient` is configured in code.
 
 ## DefaultRequestHeaders
 
